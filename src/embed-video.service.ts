@@ -71,7 +71,7 @@ export class EmbedVideoService {
     options = this.parseOptions(options);
 
     return this.sanitize_iframe('<iframe src="https://player.vimeo.com/video/'
-      + id + options.hash + options.query + '"' + options.attr
+      + id + options.query + options.hash + '"' + options.attr
       + ' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
   }
 
