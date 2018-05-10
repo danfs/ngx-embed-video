@@ -69,14 +69,9 @@ export class EmbedVideoService {
 
   public embed_vimeo(id: string, options?: any): string {
     options = this.parseOptions(options);
-    let queryString;
-
-    if (options && options.hasOwnProperty('query')) {
-      queryString = '?' + this.serializeQuery(options.query);
-    }
 
     return this.sanitize_iframe('<iframe src="https://player.vimeo.com/video/'
-      + id + options.query + '"' + options.attr
+      + id + options.hash + options.query + '"' + options.attr
       + ' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
   }
 
@@ -175,8 +170,13 @@ export class EmbedVideoService {
   }
 
   private parseOptions(options: any): any {
-    let queryString = '',
+    let hashString = '',
+      queryString = '',
       attributes = '';
+
+    if (options && options.hasOwnProperty('hash')) {
+      hashString = '#' + options.hash;
+    }
 
     if (options && options.hasOwnProperty('query')) {
       queryString = '?' + this.serializeQuery(options.query);
@@ -192,6 +192,7 @@ export class EmbedVideoService {
       attributes = ' ' + temp.join(' ');
     }
     return {
+      hash: hashString,
       query: queryString,
       attr: attributes
     };
@@ -208,6 +209,7 @@ export class EmbedVideoService {
 
     return queryString.join('&');
   }
+  
 
   private sanitize_iframe(iframe: string): any {
     return this.sanitizer.bypassSecurityTrustHtml(iframe);
