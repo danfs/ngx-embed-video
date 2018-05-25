@@ -35,3 +35,4 @@ var EmbedVideo = /** @class */ (function () {
     var EmbedVideo_1;
 }());
 exports.EmbedVideo = EmbedVideo;
+//# sourceMappingURL=index.js.map
