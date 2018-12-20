@@ -59,7 +59,7 @@ var EmbedVideoService = /** @class */ (function () {
             queryString = '?' + this.serializeQuery(options.query);
         }
         return this.sanitize_iframe('<iframe id="embeded-video" src="https://www.youtube.com/embed/'
-            + id + options.query + '"' + options.attr
+           + id + options.query + '"' + options.attr
             + ' frameborder="0" allowfullscreen></iframe>');
     };
     EmbedVideoService.prototype.embed_vimeo = function (id, options) {
