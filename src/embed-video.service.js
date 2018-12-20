@@ -58,15 +58,15 @@ var EmbedVideoService = /** @class */ (function () {
         if (options && options.hasOwnProperty('query')) {
             queryString = '?' + this.serializeQuery(options.query);
         }
-        return this.sanitize_iframe('<iframe id="embeded-video" src="https://www.youtube.com/embed/'
+        return this.sanitize_iframe('<iframe src="https://www.youtube.com/embed/'
            + id + options.query + '"' + options.attr
-            + ' frameborder="0" allowfullscreen></iframe>');
+            + ' id="embededvideo" frameborder="0" allowfullscreen></iframe>');
     };
     EmbedVideoService.prototype.embed_vimeo = function (id, options) {
         options = this.parseOptions(options);
-        return this.sanitize_iframe('<iframe id="embeded-video" src="https://player.vimeo.com/video/'
+        return this.sanitize_iframe('<iframe src="https://player.vimeo.com/video/'
             + id + options.query + options.hash + '"' + options.attr
-            + ' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
+            + ' id="embededvideo" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
     };
     EmbedVideoService.prototype.embed_dailymotion = function (id, options) {
         options = this.parseOptions(options);
@@ -74,9 +74,9 @@ var EmbedVideoService = /** @class */ (function () {
         if (options && options.hasOwnProperty('query')) {
             queryString = '?' + this.serializeQuery(options.query);
         }
-        return this.sanitize_iframe('<iframe id="embeded-video" src="https://www.dailymotion.com/embed/video/'
+        return this.sanitize_iframe('<iframe src="https://www.dailymotion.com/embed/video/'
             + id + options.query + '"' + options.attr
-            + ' frameborder="0" allowfullscreen></iframe>');
+            + ' id="embededvideo" frameborder="0" allowfullscreen></iframe>');
     };
     EmbedVideoService.prototype.embed_image = function (url, options) {
         var id;
